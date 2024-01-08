@@ -34,8 +34,10 @@ public class BaseTest {
         options.setDeviceName("Pixel 3 API 31");
 
         // pe windows pun toate path-urile cu dublu //
-        options.setApp("/Users/razvan.vancea/Documents/rv-appium-java-framework/src/test/java/resources/ApiDemos-debug.apk");
+//        options.setApp("/Users/razvan.vancea/Documents/rv-appium-java-framework/src/test/java/resources/ApiDemos-debug.apk");
 
+        String baseProjectPath = System.getProperty("user.dir");
+        options.setApp(baseProjectPath + "/src/test/java/resources/ApiDemos-debug.apk");
 
         driver = new AndroidDriver(new URL("http://127.0.0.1:4723"), options);
         driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(10));
