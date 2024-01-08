@@ -22,9 +22,6 @@ public class IOSBaseTest {
 
     @BeforeClass
     public void configureAppium() throws MalformedURLException {
-        // code to automatically start the appium server
-        // pt macos rulez 'which appium' si ii aflu calea
-
         service = new AppiumServiceBuilder().withAppiumJS(new File(
                         "/Users/razvan.vancea/.nvm/versions/node/v18.19.0/lib/node_modules/appium/build/lib/main.js"))
                 .withIPAddress("127.0.0.1").usingPort(4723).build();
@@ -36,7 +33,6 @@ public class IOSBaseTest {
         String baseProjectPath = System.getProperty("user.dir");
         options.setApp(baseProjectPath + "/src/test/java/resources/UIKitCatalog.app");
         options.setPlatformVersion("15.5");
-        // Appium - Wwbdriver agent -> IOS Apps
         options.setWdaLaunchTimeout(Duration.ofSeconds(20));
 
         driver = new IOSDriver(new URL("http://127.0.0.1:4723"), options);
