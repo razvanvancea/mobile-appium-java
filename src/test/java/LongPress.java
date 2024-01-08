@@ -9,7 +9,7 @@ import org.testng.annotations.Test;
 
 import java.net.MalformedURLException;
 
-public class LongPress extends BaseTest{
+public class LongPress extends BaseTest {
 
 
     // official appium docs for gestures
@@ -20,7 +20,7 @@ public class LongPress extends BaseTest{
         driver.findElement(AppiumBy.accessibilityId("Views")).click();
         driver.findElement(AppiumBy.xpath("//android.widget.TextView[@content-desc=\"Expandable Lists\"]")).click();
         driver.findElement(AppiumBy.accessibilityId("1. Custom Adapter")).click();
-       WebElement elem = driver.findElement(AppiumBy.xpath("//*[@text='People Names']"));
+        WebElement elem = driver.findElement(AppiumBy.xpath("//*[@text='People Names']"));
         ((JavascriptExecutor) driver).executeScript("mobile: longClickGesture", ImmutableMap.of(
                 "elementId", ((RemoteWebElement) elem).getId(), "duration", 2000
         ));

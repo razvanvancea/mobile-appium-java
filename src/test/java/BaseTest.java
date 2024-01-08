@@ -33,12 +33,12 @@ public class BaseTest {
         options.setApp("/Users/razvan.vancea/Documents/rv-appium-java-framework/src/test/java/resources/ApiDemos-debug.apk");
 
 
-        driver = new AndroidDriver(new URL("http://127.0.0.1:4723"),options);
+        driver = new AndroidDriver(new URL("http://127.0.0.1:4723"), options);
         driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(10));
     }
 
     @AfterClass
-    public void tearDown(){
+    public void tearDown() {
 
         driver.quit();
         service.stop();
