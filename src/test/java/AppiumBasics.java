@@ -9,11 +9,6 @@ public class AppiumBasics extends BaseTest {
 
     @Test
     public void testWifiSettings() throws MalformedURLException {
-
-        // AndroidDriver, IOSDriver
-        // Appium code > appium server > Mobile
-        // Locators: Xpath, id, accesibilityId, className, androidUIAutomator
-
         driver.findElement(AppiumBy.accessibilityId("Preference")).click();
         driver.findElement(AppiumBy.xpath("//android.widget.TextView[@content-desc=\"3. Preference dependencies\"]")).click();
         driver.findElement(AppiumBy.id("android:id/checkbox")).click();
@@ -22,6 +17,5 @@ public class AppiumBasics extends BaseTest {
         Assert.assertEquals(alertTitle, "WiFi settings");
         driver.findElement(By.id("android:id/edit")).sendKeys("Razvan");
         driver.findElements(AppiumBy.className("android.widget.Button")).get(1).click();
-
     }
 }

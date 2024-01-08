@@ -20,9 +20,6 @@ public class BaseTest {
 
     @BeforeClass
     public void configureAppium() throws MalformedURLException {
-        // code to automatically start the appium server
-        // pt macos rulez 'which appium' si ii aflu calea
-
         service = new AppiumServiceBuilder().withAppiumJS(new File(
                         "/Users/razvan.vancea/.nvm/versions/node/v18.19.0/lib/node_modules/appium/build/lib/main.js"))
                 .withIPAddress("127.0.0.1").usingPort(4723).build();
@@ -32,9 +29,6 @@ public class BaseTest {
         // Appium code > appium server > mobile
         UiAutomator2Options options = new UiAutomator2Options();
         options.setDeviceName("Pixel 3 API 31");
-
-        // pe windows pun toate path-urile cu dublu //
-//        options.setApp("/Users/razvan.vancea/Documents/rv-appium-java-framework/src/test/java/resources/ApiDemos-debug.apk");
 
         String baseProjectPath = System.getProperty("user.dir");
         options.setApp(baseProjectPath + "/src/test/java/resources/ApiDemos-debug.apk");
@@ -71,7 +65,6 @@ public class BaseTest {
 
     @AfterClass
     public void tearDown() {
-
         driver.quit();
         service.stop();
     }

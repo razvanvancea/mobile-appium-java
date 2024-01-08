@@ -16,8 +16,6 @@ public class DragDropGesture  extends BaseTest{
         driver.findElement(AppiumBy.accessibilityId("Drag and Drop")).click();
         WebElement source = driver.findElement(By.id("io.appium.android.apis:id/drag_dot_1"));
 
- // in appium inspector sus de tot am buton 'swipe by coordinate' si imi arata exact valorile pt coordonate
-
         ((JavascriptExecutor) driver).executeScript("mobile: dragGesture", ImmutableMap.of(
                 "elementId", ((RemoteWebElement) source).getId(),
                 "endX", 630,
