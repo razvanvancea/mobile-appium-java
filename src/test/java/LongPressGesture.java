@@ -1,15 +1,11 @@
-import com.google.common.collect.ImmutableMap;
 import io.appium.java_client.AppiumBy;
-import org.openqa.selenium.By;
-import org.openqa.selenium.JavascriptExecutor;
 import org.openqa.selenium.WebElement;
-import org.openqa.selenium.remote.RemoteWebElement;
 import org.testng.Assert;
 import org.testng.annotations.Test;
 
 import java.net.MalformedURLException;
 
-public class LongPress extends BaseTest {
+public class LongPressGesture extends BaseTest {
 
 
     // official appium docs for gestures
@@ -21,9 +17,10 @@ public class LongPress extends BaseTest {
         driver.findElement(AppiumBy.xpath("//android.widget.TextView[@content-desc=\"Expandable Lists\"]")).click();
         driver.findElement(AppiumBy.accessibilityId("1. Custom Adapter")).click();
         WebElement elem = driver.findElement(AppiumBy.xpath("//*[@text='People Names']"));
-        ((JavascriptExecutor) driver).executeScript("mobile: longClickGesture", ImmutableMap.of(
-                "elementId", ((RemoteWebElement) elem).getId(), "duration", 2000
-        ));
+//        ((JavascriptExecutor) driver).executeScript("mobile: longClickGesture", ImmutableMap.of(
+//                "elementId", ((RemoteWebElement) elem).getId(), "duration", 2000
+//        ));
+        longPressAction(elem);
 
         WebElement sampleMenu = driver.findElement(AppiumBy.xpath("//android.widget.TextView[@resource-id=\"android:id/title\" and @text=\"Sample menu\"]"));
         Assert.assertTrue(sampleMenu.isDisplayed());
