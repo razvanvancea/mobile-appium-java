@@ -1,7 +1,6 @@
+import com.google.common.collect.ImmutableMap;
 import io.appium.java_client.AppiumBy;
-import io.appium.java_client.android.Activity;
-import org.openqa.selenium.By;
-import org.openqa.selenium.DeviceRotation;
+import org.openqa.selenium.JavascriptExecutor;
 import org.testng.Assert;
 import org.testng.annotations.Test;
 
@@ -19,10 +18,9 @@ public class OpenSpecificScreenActivity extends BaseTest{
         // windows: adb shell dumpsys window | find "mCurrentFocus"
         // OUTPUT: mCurrentFocus=Window{a51d934 u0 io.appium.android.apis/io.appium.android.apis.ApiDemos}
 
-        // ce este inainte de / este package name, ce este dupa, este activity name
-//        Activity activity = new Activity("io.appium.android.apis", "io.appium.android.apis.ApiDemos");
-//        driver.startActivity(activity);
+        ((JavascriptExecutor) driver).executeScript("mobile: startActivity", ImmutableMap.of("intent",
+                "io.appium.android.apis/io.appium.android.apis.view.Buttons1"));
 
-        Thread.sleep(2000);
+        Assert.assertTrue(driver.findElement(AppiumBy.accessibilityId("Normal")).isDisplayed());
     }
 }
